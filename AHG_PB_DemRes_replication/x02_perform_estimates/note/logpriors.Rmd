@@ -1,0 +1,91 @@
+---
+format: markdown+footnotes+inline_notes
+output: html_document
+header-includes:
+   - \usepackage[T1]{fontenc} 
+   - \usepackage{lmodern}
+
+---
+
+# Some unanswered MSE questions
+AHG, 2018-04-16
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(stringr)
+library(knitr)
+library(dga)
+library(diptest)
+
+args <- list(input='~/git/SV/MSE/DGA-final/output/mse-results.csv',
+             input.sample='~/git/SV/MSE/DGA-final/output/mse-results-testNmissing.csv',
+             output='~/git/SV/MSE/DGA-final/note/mse-questions.html')
+
+mse <- read_csv(args$input)
+mse$nknhat1 <- mse$dga.nhat/mse$nk
+mse$nknhat2 <- mse$dgalog.nhat/mse$nk
+mse$nknhatdiff <- mse$nknhat1-mse$nknhat2
+mse$ciwidth1 <- (mse$dga.975-mse$dga.025)/mse$nk
+mse$ciwidth2 <- (mse$dgalog.975-mse$dgalog.025)/mse$nk
+mse$ciwidthdiff <- mse$ciwidth1-mse$ciwidth2
+
+```
+
+## Q1: Priors affect estimates
+
+[It seems to me that] We've been working under two assumptions: (1) default priors are conservative relative to lognormal priors, because they place lots of weight on $\hat{N} = Nk$; and (2) it doesn't matter that much, in any case, bc the only thing that changes much is the width of the CI. Neither of these is true all the time. My basic question is: how much should we care about this?  
+
+We think of the default prior, $-log(1:Nmissing)$, where $Nmissing$ is the maximum plausible number of missing cases, as conservative. But here is a graph of the default prior (in black) and the PB/KL lognormal prior with $meanlog=0.6$ and $sdlog=0.7$ (in red):
+
+```{r dists, echo=FALSE}
+
+x <- seq(0.0001,20,length.out=10000)
+y1 <- -log(x)
+y1 <- (y1-min(y1))/(max(y1)-min(y1)) # normalizes to (0,1)
+y1 <- y1/sum(y1) # make sure probs sum to 1
+y2 <- dlnorm(x,meanlog=0.6,sdlog=0.7)
+y2 <- y2/sum(y2)
+
+plot(x,y1,type='l')
+lines(x,y2,col='red')
+
+```
+
+Basically, the prior weight on multipliers from about 4 to about 20 is higher, often much higher, with default priors than with log normal priors. We had been worried about results getting dragged down by the big weight on multipliers from ~0 to ~1. In practice, though, results with the log prior are almost always smaller than results with the default prior, if they differ at all. The graphs below show the relationship between default and lognormal estimates for $Nk \le 1000$ (top) and all Nk (bottom).  
+
+```{r nknhat, echo=FALSE}
+ggplot(data=mse) + geom_segment(aes(x=nk,xend=nk,y=dga.nhat,yend=dgalog.nhat),lwd=0.3) + geom_point(aes(x=nk,y=dga.nhat),col='red',alpha=0.3) + geom_point(aes(x=nk,y=dgalog.nhat),col='blue',alpha=0.3) + labs(y='DGA ests with (blue) and without (red) lognormal priors') + theme_light() + coord_cartesian(xlim=c(200,1000),ylim=c(200,7500))
+```
+
+```{r nknhat2, echo=FALSE}
+ggplot(data=mse) + geom_segment(aes(x=nk,xend=nk,y=dga.nhat,yend=dgalog.nhat),lwd=0.3) + geom_point(aes(x=nk,y=dga.nhat),col='red',alpha=0.3) + geom_point(aes(x=nk,y=dgalog.nhat),col='blue',alpha=0.3) + labs(y='DGA ests with (blue) and without (red) lognormal priors') + theme_light()
+```
+
+Below is a different visualization, showing the distribution of $\frac{\hat{N}_{default}-\hat{N}_{lognormal}}{Nk}$ across `r nrow(mse)` strata in the Salvadoran case. It's great that most of the observations are close to 1, but I'd like to figure out what's up with the long right tail.
+```{r diffdist, echo=FALSE}
+plot(density(mse$nknhatdiff), main='')
+```
+
+## Problem 2: Maximum missing count affects estimates
+
+In prior iterations of DGA estimation, I had used a maximum missing count of $Nk \times 10$. In the most recent version, I've used $Nk \times 20$, which is what PB did in `.../MSE-tests/note/dga-with-priors.Rmd`. Adding possibilities at the high end, even where implausible, seems to increase the point estimate. Because it's computationally really expensive to do all the estimates again with different max multipliers, here's a comparison for a sample of 50 rows, all computed with the PB/KL lognormal prior. 
+
+```{r nknhat3, echo=FALSE, message=FALSE}
+
+mse2 <- read_csv(args$input.sample)
+mse2 <- filter(mse2,is.na(dga.nhat)==FALSE)
+mse2$dgalog2.nhat <- mse2$dga.nhat # forgot to rename when I ran the sample
+
+ggplot(data=mse2) + geom_segment(aes(x=nk,xend=nk,y=dgalog2.nhat,yend=dgalog.nhat),lwd=0.3) + 
+  geom_point(aes(x=nk,y=dgalog2.nhat),col='red',alpha=0.3) + 
+  geom_point(aes(x=nk,y=dgalog.nhat),col='blue',alpha=0.3) + 
+  labs(y='DGA ests with max multiplier of 10 (blue) and 20 (red)') + 
+  theme_light()
+
+```
+
+
+
+
+
+

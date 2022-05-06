@@ -1,0 +1,108 @@
+R version 3.5.1 (2018-07-02)
+Platform: x86_64-apple-darwin15.6.0 (64-bit)
+Running under: macOS Sierra 10.12.6
+
+Matrix products: default
+BLAS: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRblas.0.dylib
+LAPACK: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRlapack.dylib
+
+locale:
+[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+
+attached base packages:
+[1] tools     stats     graphics  grDevices utils     datasets  methods  
+[8] base     
+
+other attached packages:
+[1] ggplot2_2.2.1 tibble_1.4.2  dplyr_0.7.4   magrittr_1.5  readr_1.1.1  
+
+loaded via a namespace (and not attached):
+ [1] Rcpp_0.12.16     assertthat_0.2.0 plyr_1.8.4       grid_3.5.1      
+ [5] R6_2.2.2         gtable_0.2.0     scales_0.5.0     pillar_1.2.2    
+ [9] rlang_0.2.0      lazyeval_0.2.1   bindrcpp_0.2.2   glue_1.2.0      
+[13] munsell_0.4.3    hms_0.4.2        compiler_3.5.1   colorspace_1.3-2
+[17] pkgconfig_2.0.1  bindr_0.1.1     
+[1] "starting"
+# tibble [0 × 4]
+# ... with 4 variables: row <int>, col <int>, expected <chr>, actual <chr>
+ [1] "re.pd2-WEST.8081"         "re.pd2-WEST.8283"        
+ [3] "re.pd-WEST.8492"          "re3.pd-CUSC-CABA.8083"   
+ [5] "re3.pd-CUSC-CABA.8492"    "pd3.dp-8082.CHALATENANGO"
+ [7] "pd3.dp-8385.CHALATENANGO" "pd4.dp-8692.CHALATENANGO"
+ [9] "re3.pd-LALI-SANS.8083"    "re3.pd2-LALI-SANS.8485"  
+[11] "re3.pd3-LALI-SANS.8688"   "re3.pd3-LALI-SANS.8992"  
+[13] "re2.pd2-SCENTRAL.8081"    "re3.pd2-LAPA-SANV.8283"  
+[15] "dp.pd-LA PAZ.8492"        "re.pd-EAST.8083"         
+[17] "re2.pd-EAST2.8492"        "dp.pd-SAN VICENTE.8492"  
+[19] "pd2.dp-8283.USULUTAN"     "dp.pd-USULUTAN.8492"     
+[1]   20 1017
+[1] "done with first sum"
+# A tibble: 1 x 1,008
+    pp1   pp2   pp3   pp4   pp5   pp6   pp7   pp8   pp9  pp10  pp11  pp12  pp13
+  <int> <int> <int> <int> <int> <int> <int> <int> <int> <int> <int> <int> <int>
+1 70873 73708 69864 76431 62293 70078 71943 71722 70925 76991 73774 70270 63929
+# ... with 995 more variables: pp14 <int>, pp15 <int>, pp16 <int>, pp17 <int>,
+#   pp18 <int>, pp19 <int>, pp20 <int>, pp21 <int>, pp22 <int>, pp23 <int>,
+#   pp24 <int>, pp25 <int>, pp26 <int>, pp27 <int>, pp28 <int>, pp29 <int>,
+#   pp30 <int>, pp31 <int>, pp32 <int>, pp33 <int>, pp34 <int>, pp35 <int>,
+#   pp36 <int>, pp37 <int>, pp38 <int>, pp39 <int>, pp40 <int>, pp41 <int>,
+#   pp42 <int>, pp43 <int>, pp44 <int>, pp45 <int>, pp46 <int>, pp47 <int>,
+#   pp48 <int>, pp49 <int>, pp50 <int>, pp51 <int>, pp52 <int>, pp53 <int>,
+#   pp54 <int>, pp55 <int>, pp56 <int>, pp57 <int>, pp58 <int>, pp59 <int>,
+#   pp60 <int>, pp61 <int>, pp62 <int>, pp63 <int>, pp64 <int>, pp65 <int>,
+#   pp66 <int>, pp67 <int>, pp68 <int>, pp69 <int>, pp70 <int>, pp71 <int>,
+#   pp72 <int>, pp73 <int>, pp74 <int>, pp75 <int>, pp76 <int>, pp77 <int>,
+#   pp78 <int>, pp79 <int>, pp80 <int>, pp81 <int>, pp82 <int>, pp83 <int>,
+#   pp84 <int>, pp85 <int>, pp86 <int>, pp87 <int>, pp88 <int>, pp89 <int>,
+#   pp90 <int>, pp91 <int>, pp92 <int>, pp93 <int>, pp94 <int>, pp95 <int>,
+#   pp96 <int>, pp97 <int>, pp98 <int>, pp99 <int>, pp100 <int>, pp101 <int>,
+#   pp102 <int>, pp103 <int>, pp104 <int>, pp105 <int>, pp106 <int>,
+#   pp107 <int>, pp108 <int>, pp109 <int>, pp110 <int>, pp111 <int>,
+#   pp112 <int>, pp113 <int>, …
+# tibble [0 × 4]
+# ... with 4 variables: row <int>, col <int>, expected <chr>, actual <chr>
+ [1] "re.yr-WEST.1980"           "re.yr-WEST.1981"          
+ [3] "re.pd2-WEST.8283"          "re.pd-WEST.8492"          
+ [5] "dp.yr-CABANAS.1980"        "pd2.5.dp-8182.CABANAS"    
+ [7] "re3.yr-CUSC-CABA.1983"     "dp.pd-CABANAS.8492"       
+ [9] "dp.yr-CHALATENANGO.1980"   "dp.yr-CHALATENANGO.1981"  
+[11] "pd2.dp-8283.CHALATENANGO"  "pd2.dp-8485.CHALATENANGO" 
+[13] "pd3.dp-8688.CHALATENANGO"  "re.pd3-WCENTRAL.8992"     
+[15] "dp.yr-CUSCATLAN.1980"      "dp.yr-CUSCATLAN.1981"     
+[17] "dp.yr-CUSCATLAN.1982"      "pd2.dp-8485.CUSCATLAN"    
+[19] "re2.yr-SSREGION.1986"      "re2.yr-SSREGION.1987"     
+[21] "re2.yr-SSREGION.1988"      "dp.yr-LA LIBERTAD.1980"   
+[23] "pd2.5.dp-8182.LA LIBERTAD" "pd3.dp-8385.LA LIBERTAD"  
+[25] "pd2.dp-8081.LA PAZ"        "re3.pd2-LAPA-SANV.8283"   
+[27] "re3.pd-LAPA-SANV.8492"     "re3.pd2.5-MORA-LAUN.1980" 
+[29] "re3.yr-MORA-LAUN.1981"     "re3.pd2-MORA-LAUN.8283"   
+[31] "re3.pd-MORA-LAUN.8492"     "dp.pd-SAN MIGUEL.8083"    
+[33] "dp.pd-SAN MIGUEL.8492"     "dp.yr-SAN SALVADOR.1980"  
+[35] "dp.yr-SAN SALVADOR.1981"   "dp.yr-SAN SALVADOR.1982"  
+[37] "dp.yr-SAN SALVADOR.1983"   "dp.yr-SAN SALVADOR.1984"  
+[39] "dp.yr-SAN SALVADOR.1985"   "dp.yr-SAN VICENTE.1980"   
+[41] "dp.yr-SAN VICENTE.1981"    "pd2.dp-8081.USULUTAN"     
+[43] "pd2.dp-8283.USULUTAN"      "dp.pd-USULUTAN.8492"      
+[1]   43 1017
+ [1] "dp.yr-CABANAS.1980"        "dp.yr-CHALATENANGO.1980"  
+ [3] "dp.yr-CHALATENANGO.1981"   "dp.yr-CUSCATLAN.1980"     
+ [5] "dp.yr-CUSCATLAN.1981"      "dp.yr-LA LIBERTAD.1980"   
+ [7] "dp.yr-SAN SALVADOR.1980"   "dp.yr-SAN SALVADOR.1981"  
+ [9] "dp.yr-SAN SALVADOR.1982"   "dp.yr-SAN SALVADOR.1983"  
+[11] "dp.yr-SAN SALVADOR.1984"   "dp.yr-SAN SALVADOR.1985"  
+[13] "dp.yr-SAN VICENTE.1980"    "dp.yr-SAN VICENTE.1981"   
+[15] "dp.pd-CABANAS.8492"        "dp.pd-SAN MIGUEL.8083"    
+[17] "dp.pd-SAN MIGUEL.8492"     "dp.pd-USULUTAN.8492"      
+[19] "pd2.dp-8081.LA PAZ"        "pd2.dp-8081.USULUTAN"     
+[21] "pd2.dp-8283.CHALATENANGO"  "pd2.dp-8283.USULUTAN"     
+[23] "pd2.dp-8485.CHALATENANGO"  "pd2.dp-8485.CUSCATLAN"    
+[25] "pd3.dp-8385.LA LIBERTAD"   "pd3.dp-8688.CHALATENANGO" 
+[27] "pd2.5.dp-8182.CABANAS"     "pd2.5.dp-8182.LA LIBERTAD"
+[29] "re.yr-WEST.1980"           "re.yr-WEST.1981"          
+[31] "re.pd-WEST.8492"           "re.pd2-WEST.8283"         
+[33] "re.pd3-WCENTRAL.8992"      "re2.yr-SSREGION.1986"     
+[35] "re2.yr-SSREGION.1987"      "re2.yr-SSREGION.1988"     
+[37] "re3.yr-CUSC-CABA.1983"     "re3.yr-MORA-LAUN.1981"    
+[39] "re3.pd-LAPA-SANV.8492"     "re3.pd-MORA-LAUN.8492"    
+[41] "re3.pd2-LAPA-SANV.8283"    "re3.pd2-MORA-LAUN.8283"   
+[43] "re3.pd2.5-MORA-LAUN.1980" 
