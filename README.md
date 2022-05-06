@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This replication directory has five tasks, numbered in the order in which they should typically be run (x01, x02...x05). Together, these five tasks create all the analyses referenced in our article, and all the tables and figures included in the article. 
+The replication directory includes five task subdirectories, numbered in the order in which they should typically be run (x01, x02...x05). Together, these five tasks create all the analyses referenced in our article, and all the tables and figures included in the article. 
 
 You will probably need to install several R packages. These include dga, diptest, tidyverse, and ggplot2. To install package X, or if any task exits with a "no package named X" error, do install.packages("X") in your R/RStudio window.
 
